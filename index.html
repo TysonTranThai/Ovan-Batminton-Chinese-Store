@@ -32,6 +32,27 @@
     </div>
   </div>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const langBtn = document.querySelector(".language-btn");
+      const langMenu = document.querySelector(".language-menu");
+
+      if (langBtn && langMenu) {
+        langBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          langMenu.classList.toggle("show");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+            langMenu.classList.remove("show");
+          }
+        });
+      }
+    });
+  </script>
+
+
   <section class="banner">
     <img src="banner.png" alt="羽毛球横幅">
     <div class="banner-text">
